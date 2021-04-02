@@ -68,24 +68,7 @@ context('Cypress.Cookies', () => {
     // now any cookie with the name 'session_id' will
     // not be cleared before each new test runs
     Cypress.Cookies.defaults({
-      whitelist: 'session_id',
-    })
-  })
-})
-
-context('Cypress.Server', () => {
-  beforeEach(() => {
-    cy.visit('http://localhost:8080/cypress-api')
-  })
-
-  // Permanently override server options for
-  // all instances of cy.server()
-
-  // https://on.cypress.io/cypress-server
-  it('.defaults() - change default config of server', () => {
-    Cypress.Server.defaults({
-      delay: 0,
-      force404: false,
+      preserve: 'session_id',
     })
   })
 })
